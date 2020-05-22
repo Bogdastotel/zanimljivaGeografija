@@ -9,42 +9,89 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Zanimljiva geografija</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-    <header>
-        <h1>Zanimljiva geografija</h1>
-        <form>
-            <label for="username">Korisničko ime</label>
-            <input type="text" name="username" class="username">
-            <input type="submit" value="Potvrdi">
-        </form>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navcustom">
 
-    </header>
-
-    <section class="pozdrav"></section>
-
-    <section class="dodavanjePojma">
-        <form class="pojamForma">
-            <label for="kategorija">Kategorija</label>
-            <select name="kategorija" id="kategorija">
-                <option value="Država">Država</option>
-                <option value="Grad">Grad</option>
-                <option value="Reka">Reka</option>
-                <option value="Planina">Planina</option>
-                <option value="Životinja">Životinja</option>
-                <option value="Biljka">Biljka</option>
-                <option value="Predmet">Predmet</option>
-            </select>
-
-            <label for="pojam">Unesite pojam</label>
-            <input type="text" id="pojam">
-            <input type="submit" value="Potvrdi">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Zanimljiva geografija</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hall of Fame</a>
+                </li>
 
 
-        </form>
-    </section>
+            </ul>
+        </div>
+        <div class="welcomeUser"><span class="welcome"></span> &nbsp; <a class="navbar-brand" href="index.html"><img
+                    src="assets/logo.png" alt="logo" width="70" class="rotate"></a></div>
+    </nav>
+
+
+    <div class="container">
+        <div class="row ">
+            <div class="col-4 "></div>
+            <div class="col-4  text-center">
+                <form id="updateUsername">
+                    <div class="form-group">
+                        <label for="username">Korisničko ime</label>
+                        <input type="text" name="username"
+                            class="username form-control border border-primary text-primary">
+                        <button type="submit" class="btn btn-outline-primary mt-2">Potvrdi</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-4 "></div>
+        </div>
+        <div class="row mt-1 dodavanjePojma">
+            <div class="col-4 "></div>
+
+            <div class="col-4 ">
+                <form class="pojamForma">
+                    <div class="form-group">
+                        <label for="kategorija">Kategorija</label>
+                        <select name="kategorija" id="kategorija"
+                            class="form-control border border-primary text-primary">
+                            <option value="Država">Država</option>
+                            <option value="Grad">Grad</option>
+                            <option value="Reka">Reka</option>
+                            <option value="Planina">Planina</option>
+                            <option value="Životinja">Životinja</option>
+                            <option value="Biljka">Biljka</option>
+                            <option value="Predmet">Predmet</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pojam">Unesite pojam</label>
+                        <input type="text" class="form-control text-primary border border-primary" name="pojam"
+                            id="pojam">
+                        <button type="submit" class="btn btn-primary mt-2">Potvrdi</button>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-4"></div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <div class="pulse"><span></span>
+        <span></span>
+        <span></span></div>
 
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->

@@ -1,20 +1,158 @@
-header {
-    margin: 10px auto;
-    width: 500px;
-    /* border: 1px solid red; */
-    text-align: center;
+body {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    color: white;
+    background: url(assets/world3.jpg);
+    background-size: cover;
+    animation: animateBg 60s linear infinite;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 2px;
 }
+
+span {
+    /* color: #007bff; */
+    color: palegreen;
+}
+
+input {
+    opacity: .9;
+    letter-spacing: 2px;
+    font-weight: bold !important;
+}
+
+select {
+    opacity: .9;
+    letter-spacing: 2px;
+    font-weight: bold !important;
+}
+
+button {
+    letter-spacing: 2px;
+    font-weight: bold !important;
+
+}
+
+
 
 .dodavanjePojma {
     margin: 50px auto;
-    width: 600px;
+    /* width: 600px; */
     /* border: 1px solid red; */
     text-align: center;
 }
 
-.pozdrav {
-    margin: 50px auto;
-    width: 500px;
-    /* border: 1px solid red; */
-    text-align: center;
+
+.navcustom {
+    background: transparent !important;
+
+}
+
+.navcustom a {
+    color: palegreen !important;
+    font-weight: 600;
+}
+
+.rotate {
+    /* animation: rotation 8s linear infinite; */
+}
+
+.welcome {
+    font-weight: 600;
+}
+
+.pulse {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    background: url(assets/earth.png);
+    background-size: cover;
+    border-radius: 50%;
+    animation: animateEarth 16s linear infinite;
+    box-shadow: inset 0 0 40px rgba(255, 255, 255, .5);
+}
+
+.pulse span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: transparent;
+    box-sizing: border-box;
+    border: 2px solid palegreen;
+    animation: animate 6s linear infinite;
+
+}
+
+.pulse span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.pulse span:nth-child(2) {
+    animation-delay: -2s;
+}
+
+.pulse span:nth-child(3) {
+    animation-delay: -4s;
+}
+
+@keyframes rotation {
+
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(359deg);
+    }
+
+}
+
+
+@keyframes animate {
+    0% {
+        width: 200px;
+        height: 200px;
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+
+    100% {
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
+}
+
+@keyframes animateEarth {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 719px 0;
+    }
+}
+
+@keyframes animateBg {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 1920px 0;
+    }
 }
