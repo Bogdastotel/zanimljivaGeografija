@@ -1,6 +1,3 @@
-import UsernameAlert from "./usernameAlert.js";
-import Korisnik from "./user.js";
-
 const korisnici = [];
 const counts = {};
 const sortable = [];

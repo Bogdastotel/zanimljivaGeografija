@@ -86,31 +86,3 @@ pojamForma.addEventListener("submit", (e) => {
     }
   }
 });
-
-// Return the character most commonly used in the string.
-// --- Examples
-// maxChar("I loveeeeeee noodles") === "e"
-// maxChar("1337") === "3"
-
-function maxChar(str) {
-  let countCharObj = {};
-  let maxChar = "";
-  let maxCount = 0;
-
-  for (let i = 0; i < str.length; i++) {
-    let char = str[i];
-    countCharObj[char] = countCharObj[char] + 1 || 1;
-
-    if (countCharObj[char] > maxCount) {
-      maxChar = char;
-      maxCount = countCharObj[char];
-    }
-  }
-
-  return maxChar;
-}
-
-const korisnici = [];
-const counts = {};
-const sortable = [];
-const hall = document.querySelector(".hall");
