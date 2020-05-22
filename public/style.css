@@ -54,9 +54,9 @@ button {
     font-weight: 600;
 }
 
-.rotate {
+/* .rotate {
     /* animation: rotation 8s linear infinite; */
-}
+/* } */
 
 .welcome {
     font-weight: 600;
@@ -104,6 +104,8 @@ button {
 .pulse span:nth-child(3) {
     animation-delay: -4s;
 }
+
+
 
 @keyframes rotation {
 

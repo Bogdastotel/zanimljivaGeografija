@@ -7,7 +7,6 @@ const pojamForma = document.querySelector(".pojamForma");
 const welcome = document.querySelector(".welcome");
 const kategorija = document.querySelector("#kategorija");
 const pojam = document.querySelector("#pojam");
-const pozdrav = document.querySelector(".pozdrav");
 const usernameAlert = new UsernameAlert();
 const regexP = /^[a-zA-Z\sšđčćžŠĐĆČŽ]*$/;
 const dateTmp = new Date();
@@ -20,7 +19,7 @@ if (!localStorage.korisnik) {
   usernameAlert.alertUser();
 } else {
   pojamForma.style.display = "block";
-  welcome.innerHTML = `Dobrodošao ${localStorage.korisnik}!`;
+  welcome.innerHTML = `Hello ${localStorage.korisnik}!`;
 }
 
 // promena username-a
@@ -30,9 +29,9 @@ updateUsername.addEventListener("submit", (e) => {
   if (korisnik.value !== "") {
     user.login(korisnik.value);
     korisnik.value = "";
-    welcome.innerHTML = `Dobrodošao ${localStorage.korisnik}!`;
+    welcome.innerHTML = `Hello ${localStorage.korisnik}!`;
   } else {
-    alert("Ovo polje ne sme biti prazno!");
+    Swal.fire("Ovo polje ne sme biti prazno!");
   }
 });
 
@@ -40,7 +39,7 @@ pojamForma.addEventListener("submit", (e) => {
   e.preventDefault();
 
   if (pojam.value === "") {
-    alert("Molimo unesite pojam!");
+    Swal.fire("Molimo unesite pojam!");
   } else {
     if (pojam.value.match(regexP)) {
       let pojamPolje = pojam.value.replace(/\s/g, "");
@@ -64,12 +63,20 @@ pojamForma.addEventListener("submit", (e) => {
           if (snapshot.docs.length < 1) {
             // dodavanje pojma
             db.collection("pojmovi").add(pojamDodavanje);
-            alert(`Pojam '${pojamFinal}' uspešno dodat u bazu podataka!`);
+            Swal.fire({
+              position: "top",
+              icon: "success",
+              title: `Pojam '${pojamFinal}' uspešno dodat u bazu podataka!`,
+              showConfirmButton: false,
+              timer: 1500,
+            });
             pojam.value = "";
           } else {
             snapshot.docs.forEach((doc) => {
               if (doc.data().pojam)
-                alert("Uneseni pojam vec postoji u bazi, unesite novi pojam!");
+                Swal.fire(
+                  "Uneseni pojam vec postoji u bazi, unesite novi pojam!"
+                );
               pojam.value = "";
             });
           }
@@ -79,3 +86,31 @@ pojamForma.addEventListener("submit", (e) => {
     }
   }
 });
+
+// Return the character most commonly used in the string.
+// --- Examples
+// maxChar("I loveeeeeee noodles") === "e"
+// maxChar("1337") === "3"
+
+function maxChar(str) {
+  let countCharObj = {};
+  let maxChar = "";
+  let maxCount = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    countCharObj[char] = countCharObj[char] + 1 || 1;
+
+    if (countCharObj[char] > maxCount) {
+      maxChar = char;
+      maxCount = countCharObj[char];
+    }
+  }
+
+  return maxChar;
+}
+
+const korisnici = [];
+const counts = {};
+const sortable = [];
+const hall = document.querySelector(".hall");

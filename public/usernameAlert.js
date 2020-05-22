@@ -14,6 +14,10 @@ export default class UsernameAlert {
     Swal.fire({
       title: "Unesite korisničko ime",
       input: "text",
+      imageUrl: "assets/logo.png",
+      imageWidth: 200,
+      imageHeight: 200,
+      imageAlt: "Earth",
       inputAttributes: {
         autocapitalize: "off",
       },
