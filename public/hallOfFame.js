@@ -34,7 +34,7 @@ db.collection("pojmovi")
     sortable.forEach((korisnik) => {
       counter++;
       counter <= 5
-        ? (hall.innerHTML += `<h5>${korisnik[0]} - ${korisnik[1]}</h5>`)
+        ? (hall.innerHTML += `<h3 style="margin-top: 20px; color: palegreen">${korisnik[0]} - ${korisnik[1]}</h3>`)
         : console.log(korisnik);
     });
   });
