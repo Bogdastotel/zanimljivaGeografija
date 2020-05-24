@@ -9,6 +9,7 @@ const kategorija = document.querySelector("#kategorija");
 const pojam = document.querySelector("#pojam");
 const usernameAlert = new UsernameAlert();
 const regexP = /^[a-zA-Z\sšđčćžŠĐĆČŽ]*$/;
+const regexChinese = /[\u4E00-\u9FFF\u3400-\u4DFF\uF900-\uFAFF]+/g;
 const dateTmp = new Date();
 const user = new Korisnik();
 
@@ -26,7 +27,9 @@ if (!localStorage.korisnik) {
 
 updateUsername.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (korisnik.value !== "") {
+  if (korisnik.value.match(regexChinese))
+    Swal.fire("Pojam ne sme sadržati specijalne karaktere ili brojeve");
+  else if (korisnik.value !== "") {
     user.login(korisnik.value);
     korisnik.value = "";
     welcome.innerHTML = `Hello ${localStorage.korisnik}!`;
@@ -38,10 +41,12 @@ updateUsername.addEventListener("submit", (e) => {
 pojamForma.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  if (pojam.value === "") {
+  if (pojam.value.match(regexChinese))
+    Swal.fire("Pojam ne sme sadržati specijalne karaktere ili brojeve");
+  else if (pojam.value === "") {
     Swal.fire("Molimo unesite pojam!");
   } else {
-    if (pojam.value.match(regexP)) {
+    if (!pojam.value.match(regexP)) {
       let pojamPolje = pojam.value.replace(/\s/g, "");
       let pojamPoljePrvoSlovo = pojamPolje.charAt(0).toUpperCase();
 
@@ -82,7 +87,19 @@ pojamForma.addEventListener("submit", (e) => {
           }
         });
     } else {
-      alert("Pojam ne sme sadržati specijalne karaktere i brojeve");
+      Swal.fire("Pojam ne sme sadržati specijalne karaktere i brojeve");
     }
   }
 });
+
+// db.collection("pojmovi")
+//   .where("korisnik", "==", "黑客")
+//   .get()
+//   .then((snapshot) => {
+//     // console.log(snapshot.docs);
+//     snapshot.docs.forEach((user) => {
+//       db.collection("pojmovi").doc(user.id).update({
+//         korisnik: "DusanVelev",
+//       });
+//     });
+//   });

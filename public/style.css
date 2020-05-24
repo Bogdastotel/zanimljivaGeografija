@@ -64,6 +64,7 @@ button {
 
 .pulse {
     position: absolute;
+    /* z-index: 2; */
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
