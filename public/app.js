@@ -43,10 +43,11 @@ pojamForma.addEventListener("submit", (e) => {
 
   if (pojam.value.match(regexChinese))
     Swal.fire("Pojam ne sme sadržati specijalne karaktere ili brojeve");
-  else if (pojam.value === "") {
+
+  if (pojam.value === "") {
     Swal.fire("Molimo unesite pojam!");
   } else {
-    if (!pojam.value.match(regexP)) {
+    if (pojam.value.match(regexP)) {
       let pojamPolje = pojam.value.replace(/\s/g, "");
       let pojamPoljePrvoSlovo = pojamPolje.charAt(0).toUpperCase();
 
@@ -91,15 +92,3 @@ pojamForma.addEventListener("submit", (e) => {
     }
   }
 });
-
-// db.collection("pojmovi")
-//   .where("korisnik", "==", "黑客")
-//   .get()
-//   .then((snapshot) => {
-//     // console.log(snapshot.docs);
-//     snapshot.docs.forEach((user) => {
-//       db.collection("pojmovi").doc(user.id).update({
-//         korisnik: "DusanVelev",
-//       });
-//     });
-//   });
