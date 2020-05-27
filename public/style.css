@@ -64,7 +64,7 @@ button {
 
 .pulse {
     position: absolute;
-    /* z-index: 2; */
+    z-index: -1;
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -167,4 +167,26 @@ button {
     100% {
         background-position: 1920px 0;
     }
+}
+
+.pslovo,
+.time,
+h4 {
+    width: 250px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+h4 {
+    margin-bottom: 20px;
+}
+
+.time {
+    display: none;
+}
+
+.kreni {
+    width: 450px;
+    margin: 10px auto;
+    text-align: center;
 }

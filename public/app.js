@@ -28,7 +28,9 @@ if (!localStorage.korisnik) {
 updateUsername.addEventListener("submit", (e) => {
   e.preventDefault();
   if (korisnik.value.match(regexChinese))
-    Swal.fire("Pojam ne sme sadržati specijalne karaktere ili brojeve");
+    Swal.fire(
+      "Korisničko ime ne sme sadržati specijalne karaktere ili brojeve"
+    );
   else if (korisnik.value !== "") {
     user.login(korisnik.value);
     korisnik.value = "";
@@ -37,6 +39,8 @@ updateUsername.addEventListener("submit", (e) => {
     Swal.fire("Ovo polje ne sme biti prazno!");
   }
 });
+
+// dodavanje pojma u bazu podataka
 
 pojamForma.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -64,6 +68,7 @@ pojamForma.addEventListener("submit", (e) => {
       // get kategorije
       db.collection("pojmovi")
         .where("pojam", "==", pojamFinal)
+        .where("kategorija", "==", kategorija.value)
         .get()
         .then((snapshot) => {
           if (snapshot.docs.length < 1) {
